@@ -1,10 +1,11 @@
 import './App.css'
+import Password from './components/Password'
 
 function App() {
 
   return (
     <>
-     <h1>Jesus wins</h1>
+     <Password />
     </>
   )
 }
