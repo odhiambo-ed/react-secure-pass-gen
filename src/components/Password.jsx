@@ -1,8 +1,9 @@
 import { FaClipboard } from "react-icons/fa";
+import './Password.css'
 
 export default function Password() {
   return (
-    <div className="pass__background">
+    <div className="pass__background card d-flex flex-column">
       <div className="pass__container">
         <h3>Password Generator</h3>
         <div className="pass__field">
@@ -12,15 +13,19 @@ export default function Password() {
           </button>
         </div>
         <div className="settings">
-          <div className="setting">
+          <div className="setting-range">
             <label htmlFor="">Password Length</label>
-            <input
-              type="range"
-              className="form-range"
-              min="6"
-              max="24"
-              step="6"
-            />
+            <div className="range__value">
+              <input
+                type="range"
+                className="form-range custom__range"
+                min="6"
+                max="24"
+                step="6"
+                
+              />
+              <span></span>
+            </div>
           </div>
           <div className="setting form-check form-switch">
             <label className="form-check-label" htmlFor="">
