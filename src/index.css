@@ -3,3 +3,11 @@
 * {
   font-family: 'Poppins', sans-serif;
 }
+
+:root {
+  --platinum: #e0e0e0ff;
+  --viridian: #4e937aff;
+  --beaver: #957964ff;
+  --eerie-black: #222222ff;
+  --night: #000f08ff;
+}
