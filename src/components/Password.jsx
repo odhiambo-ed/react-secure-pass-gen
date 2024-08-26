@@ -9,7 +9,13 @@ export default function Password() {
         <button id="clipboad" className="btn__display">
           <FaClipboard />
         </button>
-      </div>
+          </div>
+          <div className="settings">
+              <div className="setting">
+                  <label htmlFor="">Password Length</label>
+                  <input type="range" className="form-range" min="6" max="24" step="6" />
+              </div>
+          </div>
     </div>
   );
 }
