@@ -2,7 +2,7 @@ import { FaClipboard } from "react-icons/fa";
 
 export default function Password() {
   return (
-    <div className="container">
+    <div className="pass__background">
       <div className="pass__container">
         <h3>Password Generator</h3>
         <div className="pass__field">
