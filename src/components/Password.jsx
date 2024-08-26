@@ -16,7 +16,7 @@ export default function Password() {
         <div className="settings">
           <div className="setting-range mb-3">
             <label htmlFor="">Password Length</label>
-            <div className="range__value d-flex gap-5">
+            <div className="range__value d-flex gap-3 align-items-center">
               <input
                 type="range"
                 className="form-range custom__range"
@@ -26,7 +26,7 @@ export default function Password() {
                 value={passLength}
                 onChange={(e) => setPassLength(e.target.value)}
               />
-              <span>{ passLength}</span>
+              <span className="pass__value">{ passLength}</span>
             </div>
           </div>
           <div className="setting form-check form-switch">
