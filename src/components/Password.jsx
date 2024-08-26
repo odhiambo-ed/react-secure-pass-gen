@@ -54,7 +54,7 @@ export default function Password() {
             <input className="form-check-input" type="checkbox" />
           </div>
         </div>
-        <div className="btn">Generate Password</div>
+        <div className="btn__gen">Generate Password</div>
       </div>
   );
 }
