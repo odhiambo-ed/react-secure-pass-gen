@@ -5,7 +5,7 @@ import { useState } from "react";
 export default function Password() {
   const [passLength, setPassLength] = useState(6)
   return (
-      <div className="pass__container mx-auto d-flex flex-column gap-3">
+      <div className="pass__container mx-auto d-flex flex-column gap-3 justify-content-center align-items-center">
         <h3>Password Generator</h3>
         <div className="pass__field">
           <span></span>
@@ -14,9 +14,9 @@ export default function Password() {
           </button>
         </div>
         <div className="settings">
-          <div className="setting-range">
+          <div className="setting-range mb-3">
             <label htmlFor="">Password Length</label>
-            <div className="range__value">
+            <div className="range__value d-flex gap-5">
               <input
                 type="range"
                 className="form-range custom__range"
