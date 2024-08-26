@@ -12,8 +12,23 @@ export default function Password() {
   const [symbols, setSymbols] = useState(false)
 
   const generatePassword = () => {
+    let charSet = "";
+    if (upperCase) charSet += upperCaseChars;
+    if (lowerCase) charSet += lowerCaseChars;
+    if (numbers) charSet += numberChars;
+    if (symbols) charSet += symbolChars;
     
+    let generatedPassword = "";
+    for (i > 0; i <= passLength; i++) {
+      const randomIndex = Math.floor(Math.random() * charSet.length)
+      generatedPassword += charSet[randomIndex]
+    }
+
+    setPassword(generatedPassword);
+
   }
+
+  console.log(password)
 
   return (
       <div className="pass__container mx-auto d-flex flex-column gap-3 justify-content-center align-items-center">
@@ -44,7 +59,7 @@ export default function Password() {
             <label className="form-check-label" htmlFor="">
               Include Uppercase Letters
             </label>
-            <input className="form-check-input" type="checkbox" />
+            <input className="form-check-input" type="checkbox" checked={upperCase} onChange={() => setUpperCase(!upperCase)} />
           </div>
           <div className="setting form-check form-switch">
             <label className="form-check-label" htmlFor="">
@@ -65,7 +80,7 @@ export default function Password() {
             <input className="form-check-input" type="checkbox" />
           </div>
         </div>
-        <div className="btn__gen">Generate Password</div>
+        <div className="btn__gen" onClick={() => generatePassword}>Generate Password</div>
       </div>
   );
 }
