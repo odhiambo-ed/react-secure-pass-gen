@@ -1,7 +1,9 @@
 import { FaClipboard } from "react-icons/fa";
 import './Password.css'
+import { useState } from "react";
 
 export default function Password() {
+  const [passLength, setPassLength] = useState(6)
   return (
     <div className="pass__background card d-flex flex-column">
       <div className="pass__container">
@@ -22,9 +24,10 @@ export default function Password() {
                 min="6"
                 max="24"
                 step="6"
-                
+                value={passLength}
+                onChange={(e) => setPassLength(e.target.value)}
               />
-              <span></span>
+              <span>{ passLength}</span>
             </div>
           </div>
           <div className="setting form-check form-switch">
