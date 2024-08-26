@@ -5,7 +5,7 @@ import { useState } from "react";
 export default function Password() {
   const [passLength, setPassLength] = useState(6)
   return (
-      <div className="pass__container mx-auto">
+      <div className="pass__container mx-auto d-flex flex-column gap-3">
         <h3>Password Generator</h3>
         <div className="pass__field">
           <span></span>

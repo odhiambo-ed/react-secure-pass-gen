@@ -4,7 +4,7 @@ import Password from './components/Password'
 function App() {
 
   return (
-    <div className='cover'>
+    <div className='cover d-flex justify-content-center align-items-center'>
      <Password />
     </div>
   )
