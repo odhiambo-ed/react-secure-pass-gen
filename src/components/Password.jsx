@@ -1,9 +1,20 @@
 import { FaClipboard } from "react-icons/fa";
 import './Password.css'
 import { useState } from "react";
+import {upperCaseChars,lowerCaseChars, numberChars, symbolChars } from './CharSet'
 
 export default function Password() {
   const [passLength, setPassLength] = useState(6)
+  const [password, setPassword] = useState("")
+  const [upperCase, setUpperCase] = useState(false)
+  const [lowerCase, setLowerCase] = useState(false)
+  const [numbers, setNumbers] = useState(false)
+  const [symbols, setSymbols] = useState(false)
+
+  const generatePassword = () => {
+    
+  }
+
   return (
       <div className="pass__container mx-auto d-flex flex-column gap-3 justify-content-center align-items-center">
         <h3>Password Generator</h3>
