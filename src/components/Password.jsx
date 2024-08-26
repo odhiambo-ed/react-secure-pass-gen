@@ -8,7 +8,7 @@ export default function Password() {
       <div className="pass__container mx-auto d-flex flex-column gap-3 justify-content-center align-items-center">
         <h3>Password Generator</h3>
         <div className="pass__field">
-          <span></span>
+          <span className="pass__holder"></span>
           <button id="clipboad" className="btn__display">
             <FaClipboard />
           </button>
