@@ -15,6 +15,22 @@ export default function Password() {
                   <label htmlFor="">Password Length</label>
                   <input type="range" className="form-range" min="6" max="24" step="6" />
               </div>
+              <div className="setting">
+                  <label htmlFor="">Include Uppercase Letters</label>
+                  <input type="checkbox" />
+              </div>
+              <div className="setting">
+                  <label htmlFor="">Include Lowercase Letters</label>
+                  <input type="checkbox" />
+              </div>
+              <div className="setting">
+                  <label htmlFor="">Include Numbers</label>
+                  <input type="checkbox" />
+              </div>
+              <div className="setting">
+                  <label htmlFor="">Include Symbols</label>
+                  <input type="checkbox" />
+              </div>
           </div>
     </div>
   );
