@@ -31,6 +31,14 @@ export default function Password() {
     if (strength <= 2) return "Weak";
     if (strength === 3) return "Medium";
     if (strength >= 4) return "Strong";
+
+    if (password.length >= 8) {
+      if (strength === 1) return "Weak";
+      if (strength === 2) return "Medium";
+      if (strength >= 3) return "Strong";
+    } else {
+      return "Very Weak";
+    }
   };
 
   const generatePassword = () => {
@@ -73,15 +81,27 @@ export default function Password() {
         draggable
         pauseOnHover
         theme="light"
-        />
+      />
       <div className="pass__container mx-auto d-flex flex-column gap-3 justify-content-center align-items-center">
         <h3>Password Generator</h3>
         <div className="pass__field">
           <span className="pass__holder">{password}</span>
-          <button id="clipboard" className="btn__display" onClick={copyClipBoard}>
+          <button
+            id="clipboard"
+            className="btn__display"
+            onClick={copyClipBoard}
+          >
             <FaClipboard />
           </button>
         </div>
+        {/* <div className="password-strength">
+          <span>Password Strength: {passwordStrength}</span>
+        </div> */}
+        {password && (
+          <div className={`strength-indicator ${strength.toLowerCase()}`}>
+            Password Strength: {strength}
+          </div>
+        )}
         <div className="settings">
           <div className="setting-range mb-3">
             <label>Password Length</label>
