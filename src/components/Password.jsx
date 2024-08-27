@@ -1,12 +1,14 @@
 import { FaClipboard } from "react-icons/fa";
 import "./Password.css";
 import { useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
 import {
   upperCaseChars,
   lowerCaseChars,
   numberChars,
   symbolChars,
 } from "./CharSet";
+
 
 export default function Password() {
   const [passLength, setPassLength] = useState(6);
@@ -27,6 +29,11 @@ export default function Password() {
     for (let i = 0; i < passLength; i++) {
       const randomIndex = Math.floor(Math.random() * charSet.length);
       generatedPassword += charSet[randomIndex];
+    }
+
+    if ([upperCase, lowerCase, numbers, symbols].filter(Boolean).length < 2) {
+      
+      return
     }
 
     setPassword(generatedPassword);
