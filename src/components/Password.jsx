@@ -32,7 +32,7 @@ export default function Password() {
       <div className="pass__container mx-auto d-flex flex-column gap-3 justify-content-center align-items-center">
         <h3>Password Generator</h3>
         <div className="pass__field">
-          <span className="pass__holder"></span>
+        <span className="pass__holder">{ password }</span>
           <button id="clipboad" className="btn__display">
             <FaClipboard />
           </button>
@@ -75,7 +75,7 @@ export default function Password() {
             <label className="form-check-label" htmlFor="">
               Include Symbols
             </label>
-            <input className="form-check-input" type="checkbox" checked={symbols} onChange={!symbols} />
+            <input className="form-check-input" type="checkbox" checked={symbols} onChange={() => setSymbols(!symbols)} />
           </div>
         </div>
         <div className="btn__gen" onClick={() => generatePassword}>Generate Password</div>
