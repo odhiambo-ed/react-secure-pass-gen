@@ -19,7 +19,7 @@ export default function Password() {
     if (symbols) charSet += symbolChars;
     
     let generatedPassword = "";
-    for (i > 0; i <= passLength; i++) {
+    for (let i = 0; i < passLength; i++) {
       const randomIndex = Math.floor(Math.random() * charSet.length)
       generatedPassword += charSet[randomIndex]
     }
@@ -27,8 +27,6 @@ export default function Password() {
     setPassword(generatedPassword);
 
   }
-
-  console.log(password)
 
   return (
       <div className="pass__container mx-auto d-flex flex-column gap-3 justify-content-center align-items-center">
@@ -65,19 +63,19 @@ export default function Password() {
             <label className="form-check-label" htmlFor="">
               Include Lowercase Letters
             </label>
-            <input className="form-check-input" type="checkbox" />
+            <input className="form-check-input" type="checkbox" checked={lowerCase} onChange={() => setLowerCase(!lowerCase)}  />
           </div>
           <div className="setting form-check form-switch">
             <label className="form-check-label" htmlFor="">
               Include Numbers
             </label>
-            <input className="form-check-input" type="checkbox" />
+            <input className="form-check-input" type="checkbox" checked={numbers} onChange={() => setNumbers(!numbers)} />
           </div>
           <div className="setting form-check form-switch">
             <label className="form-check-label" htmlFor="">
               Include Symbols
             </label>
-            <input className="form-check-input" type="checkbox" />
+            <input className="form-check-input" type="checkbox" checked={symbols} onChange={!symbols} />
           </div>
         </div>
         <div className="btn__gen" onClick={() => generatePassword}>Generate Password</div>
