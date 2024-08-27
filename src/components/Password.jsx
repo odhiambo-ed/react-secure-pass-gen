@@ -9,7 +9,6 @@ import {
   symbolChars,
 } from "./CharSet";
 
-
 export default function Password() {
   const [passLength, setPassLength] = useState(6);
   const [password, setPassword] = useState("");
@@ -18,7 +17,6 @@ export default function Password() {
   const [numbers, setNumbers] = useState(false);
   const [symbols, setSymbols] = useState(false);
   const [passwordStrength, setPasswordStrength] = useState("");
-  
 
   const evaluatePasswordStrength = (password) => {
     let strength = 0;
@@ -32,13 +30,7 @@ export default function Password() {
     if (strength === 3) return "Medium";
     if (strength >= 4) return "Strong";
 
-    if (password.length >= 8) {
-      if (strength === 1) return "Weak";
-      if (strength === 2) return "Medium";
-      if (strength >= 3) return "Strong";
-    } else {
-      return "Very Weak";
-    }
+    return "Very Weak";
   };
 
   const generatePassword = () => {
@@ -56,7 +48,7 @@ export default function Password() {
 
     if ([upperCase, lowerCase, numbers, symbols].filter(Boolean).length < 2) {
       toast.warn("Please select at least two character types!");
-      return
+      return;
     }
 
     setPassword(generatedPassword);
@@ -66,7 +58,7 @@ export default function Password() {
   const copyClipBoard = () => {
     navigator.clipboard.writeText(password);
     toast.info("Password copied to clipboard!");
-  }
+  };
 
   return (
     <>
@@ -94,12 +86,11 @@ export default function Password() {
             <FaClipboard />
           </button>
         </div>
-        {/* <div className="password-strength">
-          <span>Password Strength: {passwordStrength}</span>
-        </div> */}
         {password && (
-          <div className={`strength-indicator ${strength.toLowerCase()}`}>
-            Password Strength: {strength}
+          <div
+            className={`strength-indicator ${passwordStrength.toLowerCase()}`}
+          >
+            Password Strength: {passwordStrength}
           </div>
         )}
         <div className="settings">
