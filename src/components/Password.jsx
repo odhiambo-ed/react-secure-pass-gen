@@ -17,6 +17,21 @@ export default function Password() {
   const [lowerCase, setLowerCase] = useState(false);
   const [numbers, setNumbers] = useState(false);
   const [symbols, setSymbols] = useState(false);
+  const [passwordStrength, setPasswordStrength] = useState("");
+  
+
+  const evaluatePasswordStrength = (password) => {
+    let strength = 0;
+    if (password.length >= 8) strength++;
+    if (/[A-Z]/.test(password)) strength++;
+    if (/[a-z]/.test(password)) strength++;
+    if (/[0-9]/.test(password)) strength++;
+    if (/[^A-Za-z0-9]/.test(password)) strength++;
+
+    if (strength <= 2) return "Weak";
+    if (strength === 3) return "Medium";
+    if (strength >= 4) return "Strong";
+  };
 
   const generatePassword = () => {
     let charSet = "";
@@ -37,7 +52,13 @@ export default function Password() {
     }
 
     setPassword(generatedPassword);
+    setPasswordStrength(evaluatePasswordStrength(generatedPassword));
   };
+
+  const copyClipBoard = () => {
+    navigator.clipboard.writeText(password);
+    toast.info("Password copied to clipboard!");
+  }
 
   return (
     <>
@@ -57,7 +78,7 @@ export default function Password() {
         <h3>Password Generator</h3>
         <div className="pass__field">
           <span className="pass__holder">{password}</span>
-          <button id="clipboard" className="btn__display">
+          <button id="clipboard" className="btn__display" onClick={copyClipBoard}>
             <FaClipboard />
           </button>
         </div>
