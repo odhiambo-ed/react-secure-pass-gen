@@ -1,6 +1,6 @@
 ## Sneak Peek
 
-![Preview](search.gif)
+![Preview](pass-gen.gif)
 
 # React Secure Password Generator
 
