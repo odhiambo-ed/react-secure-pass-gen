@@ -26,11 +26,11 @@ export default function Password() {
     if (/[0-9]/.test(password)) strength++;
     if (/[^A-Za-z0-9]/.test(password)) strength++;
 
-    if (strength <= 2) return "Weak";
-    if (strength === 3) return "Medium";
-    if (strength >= 4) return "Strong";
+    if (strength <= 2) return { label: "Weak", percentage: 33 };
+    if (strength === 3) return { label: "Medium", percentage: 66 };
+    if (strength >= 4) return { label: "Strong", percentage: 100 };
 
-    return "Very Weak";
+    return { label: "Very Weak", percentage: 0 };
   };
 
   const generatePassword = () => {
@@ -52,7 +52,8 @@ export default function Password() {
     }
 
     setPassword(generatedPassword);
-    setPasswordStrength(evaluatePasswordStrength(generatedPassword));
+    const strength = evaluatePasswordStrength(generatedPassword);
+    setPasswordStrength(strength);
   };
 
   const copyClipBoard = () => {
@@ -87,10 +88,20 @@ export default function Password() {
           </button>
         </div>
         {password && (
-          <div
-            className={`strength-indicator ${passwordStrength.toLowerCase()}`}
-          >
-            Password Strength: {passwordStrength}
+          <div className="password-strength-container w-100">
+            <label>Password Strength: {passwordStrength.label}</label>
+            <div className="progress">
+              <div
+                className={`progress-bar ${passwordStrength.label.toLowerCase()}`}
+                role="progressbar"
+                style={{ width: `${passwordStrength.percentage}%` }}
+                aria-valuenow={passwordStrength.percentage}
+                aria-valuemin="0"
+                aria-valuemax="100"
+              >
+                {passwordStrength.label}
+              </div>
+            </div>
           </div>
         )}
         <div className="settings">
